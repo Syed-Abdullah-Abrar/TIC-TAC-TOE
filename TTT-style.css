@@ -9,3 +9,18 @@
     background-color: aqua;
     display: flex;
 }
+
+.logo{
+    display: flex;
+    align-items: center;
+}
+
+#logo-pic{
+    height: 70px;
+    width: 110px;
+    margin-top: 5px;
+    margin-left: 5px;
+    background-size: cover;
+    background-image: url(logo.png);
+    
+}
