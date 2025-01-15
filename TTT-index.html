@@ -6,6 +6,7 @@
     <title>Tic-Tac-Toe</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="TTT-style.css">
+    <script src="TTT-script.js"></script>
 </head>
 <body>
     <header>
@@ -15,22 +16,36 @@
                     <div id="logo-pic"></div>
                     <p>TIC-TAC-TOE</p>
                 </div>
-            </div>    
-            <div class="settings">  
-                <div class="backgrond">
-                    <label for="bg-color"><i class="fa-solid fa-bars"></i></label>
+            </div>
+            <button id="settings-button" onclick="showSiteSettings()"><i class="fa-solid fa-bars"></i></button>
+            <div id="settings">  
+                <div class="background">
+                    <label for="bg-color">BG-Color</label>
                     <select name="bg-color" id="bg-color">
-                        <option value="black">Black</option>
+                        <option value="black" selected>Black</option>
                         <option value="blue">Blue</option>
                         <option value="neon">Neon</option>
-                        <option value="white" selected>White</option>
+                        <option value="white">White</option>
                     </select>
                 </div>
             </div>
         </div>    
     </header>
-    <div class="play-mode">
-        <div class="mode-select"></div>       
+    <div class="play_mode">
+        <div class="mode_select">
+            <p id="facts">An early variation of tic-tac-toe was played in the Roman Empire, around the first century BC. It was called terni lapilli (three pebbles at a time) and instead of having any number of pieces, each player had only three; thus, they had to move them around to empty spaces to keep playing.</p>
+            <div class="facts_pic"></div>
+            <a class="play_type h2h_box" href="TTT1-index.html">
+                <div class="h2h">
+                    <h2 id="player_type">Play vs Player</h2>
+                </div>
+            </a>
+            <a class="play_type" href="TTT2-index.html">
+                <div class="p2b">
+                    <h2 id="player_type">Play vs Computer</h2>
+                </div>
+            </a>
+        </div>       
     </div>
 </body>
 </html>
