@@ -5,35 +5,130 @@
 }
 
 .navbar{
-    height: 80px;
+    height: 100px;
+    background-color: #5e6572;
+    display: flex;
+    align-items: center;
+    justify-content:space-between;
+}
+
+.logo{
+    display: flex;
+    align-items: center;
+    gap: 0.5em;
+    font-style: oblique;
+    font-weight: 800;
+    font-size:xx-large;
+
+}
+
+#logo_pic{
+    height: 100px;
+    width: 110px;
+    background-size: cover;
+    background-image: url(logo_1.png);
     background-color: aqua;
-    display: flex;
+    
 }
 
-.ingame-option{
+.ingame_option{
     display: flex;
+    gap: 8em;
+    margin-right: 200px;
 }
-
-.game{
-    margin-top:100px;
+#ingame_option{
     height: 100%;
+    width: 100%;
+    border-radius: 2rem;
+    background-color: black;
+    color: white;
+    font-weight: 800;
+    font-size: large;
+}
+#ingame_option:hover{
+    cursor: pointer;
+}
+.play_again{
+    height: 50px;
+    width: 180px;
+    border-radius: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.restart{
+    height: 50px;
+    width: 180px;
+    border-radius: 2rem;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.game-box{
-    height: 450px;
-    width: 450px;
+.game{
+    height: 84vh;
+    background-color:#bcb382;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap:7em;
+}
+
+
+.choose_box{
+    height: 220px;
+    width: 150px;
+    border-radius: 2rem;
+    background-color: blu;
+    border: 1px solid #5e6572;
+    display: flex;   
+    justify-content: center;
+    flex-wrap: wrap;
+}
+#play_letter{
+    margin-left: 18px;
+    margin-top: 5px;
+}
+.x_box{
+    margin-top: 10px;
+    height: 80px;
+    width: 100%;
+}
+.y_box{
+    height: 80px;
+    width: 100%;
+}
+
+#game_option{
+    height: 50px;
+    width: 80%;
+    margin-left: 15px;
+    margin-right: 10px;
+    background-color: #bcb382;
+    border: 2px solid #5e6572;
+    border-radius: 2rem;
+    font-size: larger;
+    font-weight: 700;
+}
+#game_option:hover{
+    cursor: pointer;
+    opacity: 0.5;
+
+}
+
+.game_box{
+    height: 420px;
+    width: 420px;
     border-radius: 1rem;
     background-color: rgb(181, 194, 194);
     display: flex;
     flex-wrap: wrap;
+    
 }
 
 .slot{
     height: 33%;
-    width: 32.88%;
+    width: 32.82%;
     border: 1px solid black;
     opacity: 0.5;
 }
@@ -58,4 +153,10 @@
 
 .s9{
     border-bottom-right-radius:1rem;
+}
+
+.score_box{
+    height: 420px;
+    width: 300px;
+    background-color: aqua;
 }

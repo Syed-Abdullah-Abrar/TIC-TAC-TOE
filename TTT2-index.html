@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tic-Tac-Toe</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="TTT-style.css">
+    <link rel="stylesheet" href="TTT1-style.css">
     <script src="script.js"></script>
 </head>
 <body>
@@ -13,33 +13,32 @@
         <div class="navbar">
             <div class="nav-logo">
                 <div class="logo">
-                    <div id="logo-pic"></div>
-                        <p>TIC-TAC-TOE</p>
-                    </div>
-            </div>    
-            <div class="ingame-option">
-               <div class="restart">
-                    <button>Restart</button>
-                </div>
-                <div class="play-again">
-                    <button>Play Again</button>
-                </div>
-              </div>
-            <div class="settings">  
-                <div class="backgrond">
-                    <label for="bg-color"><i class="fa-solid fa-bars"></i></label>
-                    <select name="bg-color" id="bg-color">
-                        <option value="black">Black</option>
-                        <option value="blue">Blue</option>
-                        <option value="neon">Neon</option>
-                        <option value="white">White</option>
-                    </select>
+                    <div id="logo_pic"></div>
+                    <p>TIC-TAC-TOE</p>
                 </div>
             </div>
-        </div>    
+            
+           <div class="ingame_option">
+                <div class="restart">
+                    <button id="ingame_option">Restart</button>
+                </div>
+                <div class="play_again">
+                    <button id="ingame_option">Play Again</button>
+                </div>
+            </div>
+        </div>
     </header>
     <div class="game">
-        <div class="game-box">
+        <div class="choose_box">
+            <h3 id="play_letter">Choose your play letter</h3>
+            <div class="x_box">
+                <button id="game_option">X</button>
+            </div>
+            <div class="y_box">
+                <button id="game_option">Y</button>
+            </div>
+        </div>
+        <div class="game_box">
             <div class="slot s1"></div>
             <div class="slot s2"></div>
             <div class="slot s3"></div>
@@ -49,6 +48,11 @@
             <div class="slot s7"></div>
             <div class="slot s8"></div>
             <div class="slot s9"></div>
+        </div>
+        <div class="score_box">
+            <h1>SCORE</h1>
+            <div class="player1_score"></div>
+            <div class="player2_score"></div>
         </div>
     </div>
 
