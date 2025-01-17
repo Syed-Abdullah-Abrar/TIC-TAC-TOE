@@ -158,5 +158,63 @@
 .score_box{
     height: 420px;
     width: 300px;
-    background-color: aqua;
+    border: 6px solid #5e6572;
+    border-radius: 2rem;
+}
+
+#h1score{
+    padding-left: 12%;
+    padding-top: 10px;
+}
+
+.max_score{
+    height: 2%;
+    width: 100%;
+    border-top:  4px solid #5e6572 ;
+}
+
+#p1{
+    display: flex;
+    justify-content: space-evenly;
+    font-size: xx-large;
+}
+
+#p2{
+    display: flex;
+    justify-content: space-evenly;
+    font-size: xx-large;
+}
+
+.player1_score{
+    height: 30%;
+    width: 100%;
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 4px solid #5e6572;
+    border-bottom: 4px solid #5e6572;
+}
+
+.player2_score{
+    height: 30%;
+    width: 100%;
+    margin-top: 15px;
+}
+
+.p1score_no{
+    height: 30%;
+    width: 80%;
+    margin: 10%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: xxx-large;
+}
+.p2score_no{
+    height: 30%;
+    width: 80%;
+    margin: 10%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: xxx-large;
 }
