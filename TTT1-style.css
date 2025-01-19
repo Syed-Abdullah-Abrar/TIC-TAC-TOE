@@ -99,7 +99,7 @@
     width: 100%;
 }
 
-#game_option{
+#game_optionX{
     height: 50px;
     width: 80%;
     margin-left: 15px;
@@ -110,10 +110,24 @@
     font-size: larger;
     font-weight: 700;
 }
-#game_option:hover{
+#game_optionY{
+    height: 50px;
+    width: 80%;
+    margin-left: 15px;
+    margin-right: 10px;
+    background-color: #bcb382;
+    border: 2px solid #5e6572;
+    border-radius: 2rem;
+    font-size: larger;
+    font-weight: 700;
+}
+#game_optionX:hover{
     cursor: pointer;
     opacity: 0.5;
-
+}
+#game_optionY:hover{
+    cursor: pointer;
+    opacity: 0.5;
 }
 
 .game_box{
@@ -131,6 +145,11 @@
     width: 32.82%;
     border: 1px solid black;
     opacity: 0.5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: xxx-large;
+    font-weight: 800;
 }
 
 .slot:hover{

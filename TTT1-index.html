@@ -31,32 +31,32 @@
         <div class="choose_box">
             <h3 id="play_letter">Choose your play letter</h3>
             <div class="x_box">
-                <button id="game_option">X</button>
+                <button class="letter_select" id="game_optionX">X</button>
             </div>
             <div class="y_box">
-                <button id="game_option">O</button>
+                <button class="letter_select" id="game_optionY">O</button>
             </div>
         </div>
         <div class="game_box">
-            <div class="slot s1"></div>
-            <div class="slot s2"></div>
-            <div class="slot s3"></div>
-            <div class="slot s4"></div>
-            <div class="slot s5"></div>
-            <div class="slot s6"></div>
-            <div class="slot s7"></div>
-            <div class="slot s8"></div>
-            <div class="slot s9"></div>
+            <div class="slot s1" id="00"></div>
+            <div class="slot s2" id="01"></div>
+            <div class="slot s3" id="02"></div>
+            <div class="slot s4" id="10"></div>
+            <div class="slot s5" id="11"></div>
+            <div class="slot s6" id="12"></div>
+            <div class="slot s7" id="20"></div>
+            <div class="slot s8" id="21"></div>
+            <div class="slot s9" id="22"></div>
         </div>
         <div class="score_box">
             <h1 id="h1score">SCOREBOARD</h1>
             <div class="max_score">
-                <h2>MAX SCORE :</h2>
+                <h2 id="maxScore_set">MAX SCORE : 0</h2>
             </div>
             <div class="player1_score">
                 <div id="p1">
                     <p>Player 1  :-  </p>
-                    <p id="p1_letter">X</p>
+                    <p id="p1_letter"></p>
                 </div>
                 <div class="p1score_no">
                     <p>0</p>
@@ -65,7 +65,7 @@
             <div class="player2_score">
                 <div id="p2">
                     <p>Player 2  :-  </p>
-                    <p id="p2_letter">O</p>
+                    <p id="p2_letter"></p>
                 </div>
                 <div class="p2score_no">
                     <p>0</p>
