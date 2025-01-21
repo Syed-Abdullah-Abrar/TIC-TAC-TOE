@@ -1,11 +1,18 @@
 /* Getting maximum score input */
- let max_score=prompt("ENTER MAXIMUM SCORE");
- const maximum=document.querySelector("#maxScore_set")
- const setMaximum = (maxIput) => {
-     maximum.innerText=`MAX SCORE : ${maxIput}`;
+ let max_score=(prompt("ENTER MAXIMUM SCORE NUMBER"))
+ const setMaximum = (maxInput) => {
+    maximum=document.querySelector("#maxScore_set")
+    if(!isNaN(maxInput)&& maxInput!=0){
+        maximum.innerText=`MAX SCORE : ${maxInput}`;
+    }
+    else{
+        maximum.innerText=`MAX SCORE : ${0}`;
+        alert("ENTER VALID NON ZERO NUMBER...")
+        max_score=Number(prompt("ENTER MAXIMUM SCORE NUMBER"))
+        setMaximum(max_score)
+    }
  }
  setMaximum(max_score)
-
 /* Assigning letters to players*/
 const letter=document.querySelectorAll(".letter_select")
 const p1Letter=document.querySelector("#p1_letter")
@@ -40,11 +47,9 @@ slots.forEach((box) => {
             actPlayer=p1Letter.innerText
         }
         console.log(actPlayer);
-        box.innerText=actPlayer;
-
-        for(let val of boxId){
-            Object.freeze(box)
-        }
-      
+        box.innerText=actPlayer;  
+        if(box.boxId.contain(actPlayer))
+            return;
     })
+
 });
