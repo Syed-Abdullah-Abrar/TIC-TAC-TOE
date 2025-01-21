@@ -36,7 +36,7 @@
     gap: 8em;
     margin-right: 200px;
 }
-#ingame_option{
+#ingame_option_re{
     height: 100%;
     width: 100%;
     border-radius: 2rem;
@@ -45,7 +45,19 @@
     font-weight: 800;
     font-size: large;
 }
-#ingame_option:hover{
+#ingame_option_re:hover{
+    cursor: pointer;
+}
+#ingame_option_pl{
+    height: 100%;
+    width: 100%;
+    border-radius: 2rem;
+    background-color: black;
+    color: white;
+    font-weight: 800;
+    font-size: large;
+}
+#ingame_option_pl:hover{
     cursor: pointer;
 }
 .play_again{
