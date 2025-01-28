@@ -76,7 +76,7 @@ slots.forEach((box) => {
   box.addEventListener("click", () => {
     const boxId = box.getAttribute("id");
     console.log(`Box ${boxId} was clicked`);
-    if (actPlayer === p1Letter.innerText) {
+    if (actPlayer === p1Letter.innerText && actPlayer!==p2Letter.innerText) {
         actPlayer = p2Letter.innerText;
     }
     else{    
