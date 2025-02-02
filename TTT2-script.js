@@ -37,7 +37,7 @@ function assingnment(letter) {
   letter[1].addEventListener("click", () => {
     p1Letter.innerText = letter[1].innerText;
     p2Letter.innerText = letter[0].innerText;
-    return ;
+    return;
   });
 }
 
@@ -49,23 +49,26 @@ const slots = document.querySelectorAll(".slot");
 let player1Score = document.querySelector(".p1score_no");
 let player2Score = document.querySelector(".p2score_no");
 
-
 play_again.addEventListener("click", () => {
-  
-    player1Score.innerText=0;
-    player2Score.innerText=0;
-  
+  player1Score.innerText = 0;
+  player2Score.innerText = 0;
 });
 
 /*lock box */
-function lockBox(id, playingLetter) {}
+// function lockBox(box, playingLetter) {
+//   if (box.innerText !== "") {
+//     alert("This box is already taken. Choose another one.");
+//     return true;
+//   }
+//   box.innerText = playingLetter;
+//   return false;
+// }
 
 /*Check win*/
-function winningCheck(box) {
-
+function winningCheck(id) {
   let winningCond = [
-    ['X', 'X', 'X'],
-    ['O', 'O', 'O'],
+    ["X", "X", "X"],
+    ["O", "O", "O"],
   ];
 
   let combo = [];
@@ -79,58 +82,66 @@ function winningCheck(box) {
   combo[7] = [slots[2].innerHTML, slots[4].innerHTML, slots[6].innerHTML];
   console.log(combo);
 
-  for (let i = 0; i < 8; i++) {
-    if (combo[i].toString() === winningCond[0].toString()) {
-      box.innerText = 'X';
-      //alert("Player 1 wins");
-      alert(`Player 1 wins with ${combo[i].join(' ')}`);
-      for (let i = 0; i < 9; i++) {
-        slots[i].innerText = "";
+{
+    for (let i = 0; i < 8; i++) {
+      if (combo[i].toString() === winningCond[0].toString()) {
+        slots[id].innerText = p1Letter.innerText;
+       // alert("Player 1 wins");
+        for (let i = 0; i < 9; i++) {
+          slots[i].innerText = "";
+        }
+        player1Score.innerText = Number(player1Score.innerText) + 1;
+        break;
+      } else if (combo[i].toString() === winningCond[1].toString()) {
+        slots[id].innerText = p1Letter.innerText;
+        console.log('cna work')
+       // alert("Player 2 wins");
+        for (let i = 0; i < 9; i++) {
+          slots[i].innerText = "";
+        }
+        player2Score.innerText = Number(player2Score.innerText) + 1;
+        break;
       }
-      player1Score.innerText = Number(player1Score.innerText) + 1;
-      break;
-    } else if (combo[i].toString() === winningCond[1].toString()) {
-      box.innerText = 'O';
-     // alert("Player 2 wins");
-     alert(`Player 2 wins with ${combo[i].join(' ')}`);
-      for (let i = 0; i < 9; i++) {
-        slots[i].innerText = "";
-      }
-      player2Score.innerText = Number(player2Score.innerText) + 1;
-      break;
     }
   }
-}
+} 
 
 /* Computer play*/
-function compTurn(actPlayer){
-    let compBox = Math.floor(Math.random()*9);
-    let prefId = slots[compBox];
-    prefId.innerText=actPlayer;
-    actPlayer=p1Letter
-    return
+function compTurn(actPlayer) {
+  let compBox = Math.floor(Math.random() * 9);
+  let prefId = slots[compBox];
+  if (prefId.innerText == "") {
+    prefId.innerText = actPlayer;
+    actPlayer = p1Letter;
+  }
+  else{
+    compTurn(actPlayer);
+  }
+  return;
 }
-
 
 slots.forEach((box) => {
   box.addEventListener("click", () => {
     const boxId = box.getAttribute("id");
     console.log(`Box ${boxId} was clicked`);
     let actPlayer = p1Letter.innerText;
-    if (actPlayer === p1Letter.innerText) {
-        box.innerText=p1Letter.innerText
-        actPlayer = p2Letter.innerText;
-        compTurn(actPlayer);
-        }
-     console.log(actPlayer);
-     console.log(boxId);
-    // lockBox(boxId, actPlayer);
-     winningCheck(box);
-     if( Number(player1Score.innerText)==max_score || Number(player2Score.innerText)==max_score){
-         alert("Game Over");
-         player1Score.innerText=0;
-         player2Score.innerText=0;
-         max_score = Number(prompt("ENTER MAXIMUM SCORE NUMBER"));
-     }
+    if (actPlayer === p1Letter.innerText && box.innerText == "") {
+      box.innerText = p1Letter.innerText;
+      actPlayer = p2Letter.innerText;
+      compTurn(actPlayer);
+    }
+
+    console.log(actPlayer);
+    console.log(boxId);
+    winningCheck(boxId);
+    if (
+      Number(player1Score.innerText) == max_score ||
+      Number(player2Score.innerText) == max_score
+    ) {
+      alert("Game Over");
+      player1Score.innerText = 0;
+      player2Score.innerText = 0;
+      max_score = Number(prompt("ENTER MAXIMUM SCORE NUMBER"));
+    }
   });
 });
