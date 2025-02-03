@@ -20,15 +20,6 @@ const p2Letter = document.querySelector("#p2_letter");
 let restart = document.querySelector(".restart");
 let play_again = document.querySelector(".play_again");
 
-restart.addEventListener("click", () => {
-  location.reload();
-});
-play_again.addEventListener("click", () => {
-  for (let i = 0; i < 9; i++) {
-    slots[i].innerText = "";
-  }
-});
-
 function assingnment(letter) {
   letter[0].addEventListener("click", () => {
     p1Letter.innerText = letter[0].innerText;
@@ -40,8 +31,18 @@ function assingnment(letter) {
     return;
   });
 }
-
 assingnment(letter);
+
+
+/*Restart game*/
+restart.addEventListener("click", () => {
+  location.reload();
+});
+play_again.addEventListener("click", () => {
+  for (let i = 0; i < 9; i++) {
+    slots[i].innerText = "";
+  }
+});
 
 /* acessing slots to play game*/
 const parentBox = document.querySelectorAll(".game_box");
@@ -49,20 +50,14 @@ const slots = document.querySelectorAll(".slot");
 let player1Score = document.querySelector(".p1score_no");
 let player2Score = document.querySelector(".p2score_no");
 
+
+/*Play Again game*/
 play_again.addEventListener("click", () => {
   player1Score.innerText = 0;
   player2Score.innerText = 0;
 });
 
-/*lock box */
-// function lockBox(box, playingLetter) {
-//   if (box.innerText !== "") {
-//     alert("This box is already taken. Choose another one.");
-//     return true;
-//   }
-//   box.innerText = playingLetter;
-//   return false;
-// }
+/*Refreshing after every win */
 
 /*Check win*/
 function winningCheck(id) {
@@ -86,7 +81,15 @@ function winningCheck(id) {
     for (let i = 0; i < 8; i++) {
       if (combo[i].toString() === winningCond[0].toString()) {
         slots[id].innerText = p1Letter.innerText;
-       // alert("Player 1 wins");
+        //slots[id-1].innerHTML.style.textde= "red";
+        let r=1;
+        const alertMsg = setTimeout(refresh,3000);
+        function refresh(r) {
+          alert(`Player ${r} wins`);
+          for (let i = 0; i < 9; i++) {
+            slots[i].innerText = "";
+          }
+        }
         for (let i = 0; i < 9; i++) {
           slots[i].innerText = "";
         }
@@ -94,8 +97,14 @@ function winningCheck(id) {
         break;
       } else if (combo[i].toString() === winningCond[1].toString()) {
         slots[id].innerText = p1Letter.innerText;
-        console.log('cna work')
-       // alert("Player 2 wins");
+        let r=2;
+        const alertMsg = setTimeout(refresh,3000);
+        function refresh(r) {
+          alert(`Player ${r} wins`);
+          for (let i = 0; i < 9; i++) {
+            slots[i].innerText = "";
+          }
+        }        
         for (let i = 0; i < 9; i++) {
           slots[i].innerText = "";
         }
@@ -142,6 +151,7 @@ slots.forEach((box) => {
       player1Score.innerText = 0;
       player2Score.innerText = 0;
       max_score = Number(prompt("ENTER MAXIMUM SCORE NUMBER"));
+      setMaximum(max_score);
     }
   });
 });
