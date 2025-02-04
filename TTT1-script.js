@@ -63,57 +63,45 @@ function winningCheck(id) {
   combo[7] = [slots[2].innerHTML, slots[4].innerHTML, slots[6].innerHTML];
   console.log(combo);
 
-{
-    for (let i = 0; i < 8; i++) {
-      if (combo[i].toString() === winningCond[0].toString()) {
-        slots[id].innerText = p1Letter.innerText;
-        slots[id-1].innerHTML.style.textde= "red";
-        let r=1;
-        const alertMsg = setTimeout(refresh,3000);
-        function refresh(r) {
-          alert(`Player ${r} wins`);
-          for (let i = 0; i < 9; i++) {
-            slots[i].innerText = "";
-          }
-        }
+  for (let i = 0; i < 8; i++) {
+    if (combo[i].toString() === winningCond[0].toString()) {
+      let r = 1;
+      setTimeout(() => refresh(r), 1000);
+      function refresh(r) {
+        alert(`Player ${r} wins`);
         for (let i = 0; i < 9; i++) {
           slots[i].innerText = "";
         }
-        player1Score.innerText = Number(player1Score.innerText) + 1;
-        break;
-      } else if (combo[i].toString() === winningCond[1].toString()) {
-        slots[id].innerText = p1Letter.innerText;
-        let r=2;
-        const alertMsg = setTimeout(refresh,3000);
-        function refresh(r) {
-          alert(`Player ${r} wins`);
-          for (let i = 0; i < 9; i++) {
-            slots[i].innerText = "";
-          }
-        }        
-        for (let i = 0; i < 9; i++) {
-          slots[i].innerText = "";
-        }
-        player2Score.innerText = Number(player2Score.innerText) + 1;
-        break;
       }
+      player1Score.innerText = Number(player1Score.innerText) + 1;
+      break;
+    } else if (combo[i].toString() === winningCond[1].toString()) {
+      let r = 2;
+      setTimeout(() => refresh(r), 1000);
+      function refresh(r) {
+        alert(`Player ${r} wins`);
+        for (let i = 0; i < 9; i++) {
+          slots[i].innerText = "";
+        }
+      }
+      player2Score.innerText = Number(player2Score.innerText) + 1;
+      break;
     }
   }
-} 
+}
 slots.forEach((box) => {
   box.addEventListener("click", () => {
     const boxId = box.getAttribute("id");
     console.log(`Box ${boxId} was clicked`);
     let actPlayer = p1Letter.innerText;
     if (actPlayer === p1Letter.innerText && box.innerText == "") {
-      box.innerText = actPlayer;
       actPlayer = p2Letter.innerText;
     } else{
        {
-        box.innerText = actPlayer;
         actPlayer = p1Letter.innerText;
       }
     }
+    box.innerText = actPlayer;
     console.log(actPlayer);
     console.log(boxId);
     winningCheck(boxId);
@@ -121,12 +109,15 @@ slots.forEach((box) => {
       Number(player1Score.innerText) == max_score ||
       Number(player2Score.innerText) == max_score
     ) {
+      setTimeout(() => refresh(), 1000);
+      function refresh(){
       alert("Game Over");
       player1Score.innerText = 0;
       player2Score.innerText = 0;
       max_score = Number(prompt("ENTER MAXIMUM SCORE NUMBER"));
       setMaximum(max_score);
     }
+  }
   });
 });
 

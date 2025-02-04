@@ -80,36 +80,35 @@ function winningCheck(id) {
 {
     for (let i = 0; i < 8; i++) {
       if (combo[i].toString() === winningCond[0].toString()) {
-        slots[id].innerText = p1Letter.innerText;
-        //slots[id-1].innerHTML.style.textde= "red";
         let r=1;
-        const alertMsg = setTimeout(refresh,3000);
+        setTimeout(() => refresh(r), 1000);
         function refresh(r) {
+          slots[id].innerText = p1Letter.innerText;
           alert(`Player ${r} wins`);
           for (let i = 0; i < 9; i++) {
             slots[i].innerText = "";
+            slots[i].style.backgroundColor = "rgb(181, 194, 194)";
           }
+          for (let i = 0; i < 9; i++) {
+            slots[i].innerText = "";
+          }
+          player1Score.innerText = Number(player1Score.innerText) + 1;
         }
-        for (let i = 0; i < 9; i++) {
-          slots[i].innerText = "";
-        }
-        player1Score.innerText = Number(player1Score.innerText) + 1;
-        break;
       } else if (combo[i].toString() === winningCond[1].toString()) {
-        slots[id].innerText = p1Letter.innerText;
         let r=2;
-        const alertMsg = setTimeout(refresh,3000);
-        function refresh(r) {
+        setTimeout(() => refresh(r), 1000);
+        function refresh(r){
+          slots[id].innerText = p1Letter.innerText;
           alert(`Player ${r} wins`);
           for (let i = 0; i < 9; i++) {
             slots[i].innerText = "";
           }
+          for (let i = 0; i < 9; i++) {
+            slots[i].innerText = "";
+          }
+          player2Score.innerText = Number(player2Score.innerText) + 1;
+          
         }        
-        for (let i = 0; i < 9; i++) {
-          slots[i].innerText = "";
-        }
-        player2Score.innerText = Number(player2Score.innerText) + 1;
-        break;
       }
     }
   }
@@ -124,7 +123,12 @@ function compTurn(actPlayer) {
     actPlayer = p1Letter;
   }
   else{
-    compTurn(actPlayer);
+    for (let i = 0; i < 9; i++) {
+      if (slots[i].innerText == "") {
+        slots[i].innerText = actPlayer;
+        break;
+      }
+    }
   }
   return;
 }
